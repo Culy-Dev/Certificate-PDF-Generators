@@ -8,6 +8,32 @@ The folder Certificates contains a list of modules that work together to create 
 
 A crontab is set up to run the program every hour everyday. Student and Class data is grabbed from Hubspot. Then, depending on certain criteria, the information is added to templates created on PDFGeneratorAPI, they are uploaded to AWS, urls of the pdfs are obtained, and LinkedIN Badge is created, the assignment due date is calculated from subtraining 2 business days from the live_session_date property, and they are added to their respective student/course instance.
 
+The program is set to run every hour and update the information in their respective records on Hubspot. 
+
+## Download requirements
+1. In an Ubuntu server download this repository using ```git clone https://github.com/Culy-Dev/Certificate-PDF-Generators.git```
+2. Navigate: ```cd  Certificate-PDF-Generators/PDFGenAPI_Certs```
+3. Download requirements.txt: ```pip install -r /path/to/requirements.txt```
+4. Don't forget to also download the PDFGenAPI package in the requirements.txt.
+
+## Store Important Authentication in a .env file
+1. Create a .env file
+2. Generate your a JWT for PDFGenAPI by locating the iss, sub, exp, and secret variables. Information can be found at [Creating a JWT](https://docs.pdfgeneratorapi.com/v3/#section/Authentication/Creating-a-JWT)
+3. Store that as PDFGETAPI_JWT=__{Your jwt}__
+4. HS_TOKEN={Store your Hubspot token here}: [Generate Hubspot AccessToken](https://community.hubspot.com/t5/APIs-Integrations/How-to-generate-an-access-token-and-refresh-token/td-p/674041)
+<br />Get the following [AWS-S3-Keys](https://objectivefs.com/howto/how-to-get-amazon-s3-keys)<br />
+6. AWS_S3_BUCKET=__{Store AWS Bucket Here}__
+7. AWS_ACCESS_KEY_ID=__{AWS Access Key ID Here}__
+8. AWS_SECRET_ACCESS_KEY=__{AWS Secret Here}__
+
+## Set Up a Crontab
+1. Type ```sudo crontab -e```
+2. Pick the VIM editor
+3. Type ```i``` to switch to insert mode
+4. Paste ```*/60 * * * * /usr/bin/flock -n /tmp/cert.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py > /home/ubuntu/ALTCO/Certificates/temp/curr_cert.log 2>&1'```
+5. Type ```Esc``` to exit insert mode
+6. Type ```:wq``` to save your changes
+
 ## Crontab Explanation
 
 To check which cronjobs are set up, enter the following command <br />
