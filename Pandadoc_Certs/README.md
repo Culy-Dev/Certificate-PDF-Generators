@@ -15,9 +15,8 @@ A crontab is set up to run the program every hour everyday. Student and Class da
 
 ## Store Important Authentication in a .env file
 1. Create a .env file
-2. Generate your a JWT for PDFGenAPI by locating the iss, sub, exp, and secret variables. Information can be found at [Creating a JWT](https://docs.pdfgeneratorapi.com/v3/#section/Authentication/Creating-a-JWT)
-4. ```TEST_HS_TOKEN={Store your Hubspot token here}```: [Generate Hubspot AccessToken](https://community.hubspot.com/t5/APIs-Integrations/How-to-generate-an-access-token-and-refresh-token/td-p/674041)
-5. Locate your Pandadocs API, the template id of your certificate, and folder id and store in the following variables
+2 ```TEST_HS_TOKEN={Store your Hubspot token here}```: [Generate Hubspot AccessToken](https://community.hubspot.com/t5/APIs-Integrations/How-to-generate-an-access-token-and-refresh-token/td-p/674041)
+3. Locate your Pandadocs API, the template id of your certificate, and folder id and store in the following variables
  * ```PANDA_API```
  * ```TEMPLATE_ID```
  * ```FOLDER_ID```
