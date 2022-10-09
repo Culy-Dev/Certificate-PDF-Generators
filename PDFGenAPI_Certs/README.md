@@ -1,6 +1,10 @@
-# TLMS_HS_Integration Overview
+# PDF Generator API Certificates Overview
 
-The folder Certificates contains a list of modules that work together to create Certificates via [PDFAPI](https://pdfgeneratorapi.com/), a LinkedIN Badge Url, and updates the assignment due date.
+**NOTE: THE CODE WILL NOT RUN AS IS BECAUSE THERE'S NO hubspot.py. THAT CODE WAS WRITTEN BY SOMEONE ELSE, AND I CANNOT TAKE CREDIT FOR THAT."
+
+You will need to also get the approrpiate Pandadoc and Hubspot API keys and add it to a .env file.
+
+The folder Certificates contains a list of modules that work together to create certificates via [PDFAPI](https://pdfgeneratorapi.com/), a LinkedIN Badge Url, and updates the assignment due date.
 
 A crontab is set up to run the program every hour everyday. Student and Class data is grabbed from Hubspot. Then, depending on certain criteria, the information is added to templates created on PDFGeneratorAPI, they are uploaded to AWS, urls of the pdfs are obtained, and LinkedIN Badge is created, the assignment due date is calculated from subtraining 2 business days from the live_session_date property, and they are added to their respective student/course instance.
 
@@ -13,14 +17,14 @@ sudo crontab -l
 
 The following information should show up:
 <pre>
-*/60 * * * * /usr/bin/flock -n /tmp/cert.lockfile -c '/home/ubuntu/ALTCO/venv/bin/python /home/ubuntu/ALTCO/Certificates/run.py > /home/ubuntu/ALTCO/Certificates/temp/curr_cert.log 2>&1'
+*/60 * * * * /usr/bin/flock -n /tmp/cert.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py > /home/ubuntu/ALTCO/Certificates/temp/curr_cert.log 2>&1'
 </pre>
 The above means:
   *  ```*/60 * * * * ```: Runs every 60 minutes.
   *  ```/usr/bin/flock -n /tmp/sample.lockfile -c```: Checks to see if the program is already running a cronjob, if it is, don't run the next cronjob
-  *  ```/home/ubuntu/ALTCO/venv/bin/python```: From the virtual environment, use python
-  *  ```/home/ubuntu/ALTCO/Certificates/run.py```: to run the ```run.py``` module
-  *  ```> /home/ubuntu/ALTCO/Certificates/temp/curr_cert.log 2>&1```: Write the console output onto the ```curr_cert.log``` file in the ```/temp/``` folder.
+  *  ```/home/ubuntu/venv/bin/python```: From the virtual environment, use python
+  *  ```/home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py```: to run the ```run.py``` module
+  *  ```> /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/temp/curr_cert.log 2>&1```: Write the console output onto the ```curr_cert.log``` file in the ```/temp/``` folder.
 
 ## Stopping the Cronjob
 Do the following in order to stop the cronjob.
@@ -28,7 +32,7 @@ Do the following in order to stop the cronjob.
 2. Type to ```i``` to insert.
 3. Get to the line with the cronjob and add ```#``` in order to comment out the crontab.
 <pre>
-# /60 * * * * /usr/bin/flock -n /tmp/sample.lockfile -c '/home/ubuntu/ALTCO/venv/bin/python /home/ubuntu/ALTCO/TLMS_HS_Integration/task.py > /home/ubuntu/ALTCO/TLMS_HS_Integration/temp/curr_integration.log 2>&1'
+# /60 * * * * /usr/bin/flock -n /tmp/sample.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py > /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/temp/curr_integration.log 2>&1'
 </pre>
 4. Save your edits to the vim file by typing hitting the ```ESC``` button and then typing ```:wq```
 ** If you need to exit the vim without saving, hit the ```ESC``` button and then typing ```:q!```
@@ -66,7 +70,7 @@ somewhere else.
 ## Manual Run
 If for some reason you need to manually run the file, cancel the cronjob as given by the steps above and then enter the following in the command line:
 <pre>
-python3 /home/ubuntu/ALTCO/Certificates/run.py
+python3 /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py
 </pre>
 
 Make sure you turn the cronjob back on once you made the appropriate edits to the program by following the same steps of stopping the cronjob, but delete the ```#```
