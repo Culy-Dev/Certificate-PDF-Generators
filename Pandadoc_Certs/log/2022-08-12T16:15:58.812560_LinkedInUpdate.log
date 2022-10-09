@@ -1,0 +1,14 @@
+2022-08-12 09:15:58 | INFO
+    [LinkedInAssignDueDateUpdate: 69] --- BEGIN LINKEDIN CERTIFICATIONS CREATION (2022-08-12) ---
+
+2022-08-12 09:15:58 | INFO
+    [LinkedInAssignDueDateUpdate: 73] Retrieving data from Hubspot...
+2022-08-12 09:15:59 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "POST", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817/search"
+NoneType: None
+2022-08-12 09:16:00 | INFO
+    [LinkedInAssignDueDateUpdate: 75] ... Obtained 0 instances to create certifications for.
+
+2022-08-12 09:16:00 | INFO
+    [LinkedInAssignDueDateUpdate: 77] Creating Certifications and LinkedIn URL
+

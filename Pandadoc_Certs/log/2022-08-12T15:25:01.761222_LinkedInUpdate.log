@@ -1,0 +1,526 @@
+2022-08-12 15:25:01 | INFO
+    [LinkedInAssignDueDateUpdate: 65] --- BEGIN LINKEDIN CERTIFICATIONS CREATION (2022-08-12) ---
+
+2022-08-12 15:25:01 | INFO
+    [LinkedInAssignDueDateUpdate: 69] Retrieving data from Hubspot...
+2022-08-12 15:25:02 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "POST", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817/search"
+NoneType: None
+2022-08-12 15:25:03 | INFO
+    [LinkedInAssignDueDateUpdate: 71] ... Obtained 1 instances to create certifications for.
+
+2022-08-12 15:25:03 | INFO
+    [LinkedInAssignDueDateUpdate: 73] Creating Certifications and LinkedIn URL
+
+2022-08-12 15:25:03 | ERROR
+{
+"loggername" : "LinkedInAssignDueDateUpdate",
+"filename": "run.py",
+"funcName": "_linkedinbadge",
+"lineno": "83",
+"module": "run",
+"pathname": "/home/ubuntu/ALTCO/Certificates/run.py,"
+"message": {(sqlite3.IntegrityError) UNIQUE constraint failed: cert_id_history.hs_instance_id
+[SQL: INSERT INTO cert_id_history (hs_instance_id) VALUES (?)]
+[parameters: ('2244181415',)]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)}
+}
+Traceback (most recent call last):
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: cert_id_history.hs_instance_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/ALTCO/Certificates/run.py", line 76, in _linkedinbadge
+    record = PandaLinkedIn(instance, self.isodate, self.engine, self.session)
+  File "/home/ubuntu/ALTCO/Certificates/panda_linkedin_urls.py", line 49, in __init__
+    self.cert_id = self.create_cert_id(hs_record['properties']['hs_object_id'])
+  File "/home/ubuntu/ALTCO/Certificates/panda_linkedin_urls.py", line 55, in create_cert_id
+    self.session.commit()
+  File "<string>", line 2, in commit
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1451, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3383, in flush
+    self._flush(objects)
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3522, in _flush
+    with util.safe_reraise():
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3483, in _flush
+    flush_context.execute()
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    _emit_insert_statements(
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 1238, in _emit_insert_statements
+    result = connection._execute_20(
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/ubuntu/ALTCO/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: cert_id_history.hs_instance_id
+[SQL: INSERT INTO cert_id_history (hs_instance_id) VALUES (?)]
+[parameters: ('2244181415',)]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+2022-08-12 15:25:03 | INFO
+    [LinkedInAssignDueDateUpdate: 88] 
+Urls for 0 instance(s) have been created.
+
+2022-08-12 15:25:03 | INFO
+    [LinkedInAssignDueDateUpdate.hubapi:153] 1 batch request to do.
+2022-08-12 15:25:03 | INFO
+    [LinkedInAssignDueDateUpdate.hubapi:156] Working on batch request 1/1...
+2022-08-12 15:25:03 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "POST", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817/batch/update"
+NoneType: None
+2022-08-12 15:25:04 | INFO
+    [LinkedInAssignDueDateUpdate: 96] 
+--- END LINKEDIN CERTIFICATIONS CREATION ---
+
+2022-08-12 15:25:04 | INFO
+    [LinkedInAssignDueDateUpdate: 99] 
+--- BEGIN ASSIGNMENTMENT DUE DATE CALCULATION ---
+
+2022-08-12 15:25:04 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100"
+NoneType: None
+2022-08-12 15:25:04 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2216648569"
+NoneType: None
+2022-08-12 15:25:04 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2216649053"
+NoneType: None
+2022-08-12 15:25:04 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2216772886"
+NoneType: None
+2022-08-12 15:25:04 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2216773199"
+NoneType: None
+2022-08-12 15:25:04 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2216773300"
+NoneType: None
+2022-08-12 15:25:04 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2216773979"
+NoneType: None
+2022-08-12 15:25:05 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2216774209"
+NoneType: None
+2022-08-12 15:25:05 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2216774579"
+NoneType: None
+2022-08-12 15:25:05 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2216775504"
+NoneType: None
+2022-08-12 15:25:05 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2216775776"
+NoneType: None
+2022-08-12 15:25:05 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218062410"
+NoneType: None
+2022-08-12 15:25:05 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218062512"
+NoneType: None
+2022-08-12 15:25:05 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218062687"
+NoneType: None
+2022-08-12 15:25:05 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218062886"
+NoneType: None
+2022-08-12 15:25:05 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218063500"
+NoneType: None
+2022-08-12 15:25:05 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218063672"
+NoneType: None
+2022-08-12 15:25:06 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218063965"
+NoneType: None
+2022-08-12 15:25:06 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218064797"
+NoneType: None
+2022-08-12 15:25:06 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218086282"
+NoneType: None
+2022-08-12 15:25:06 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218087479"
+NoneType: None
+2022-08-12 15:25:06 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218087756"
+NoneType: None
+2022-08-12 15:25:06 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218088043"
+NoneType: None
+2022-08-12 15:25:06 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218089008"
+NoneType: None
+2022-08-12 15:25:06 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218089565"
+NoneType: None
+2022-08-12 15:25:07 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218111010"
+NoneType: None
+2022-08-12 15:25:07 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218111143"
+NoneType: None
+2022-08-12 15:25:07 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218111326"
+NoneType: None
+2022-08-12 15:25:07 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218111555"
+NoneType: None
+2022-08-12 15:25:07 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218112327"
+NoneType: None
+2022-08-12 15:25:07 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218133580"
+NoneType: None
+2022-08-12 15:25:07 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218134032"
+NoneType: None
+2022-08-12 15:25:07 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218134303"
+NoneType: None
+2022-08-12 15:25:07 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218136126"
+NoneType: None
+2022-08-12 15:25:08 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218145706"
+NoneType: None
+2022-08-12 15:25:08 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218146581"
+NoneType: None
+2022-08-12 15:25:08 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218146876"
+NoneType: None
+2022-08-12 15:25:08 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218147857"
+NoneType: None
+2022-08-12 15:25:08 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218147981"
+NoneType: None
+2022-08-12 15:25:08 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218179101"
+NoneType: None
+2022-08-12 15:25:08 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218179383"
+NoneType: None
+2022-08-12 15:25:08 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218179981"
+NoneType: None
+2022-08-12 15:25:09 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218180152"
+NoneType: None
+2022-08-12 15:25:09 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218180256"
+NoneType: None
+2022-08-12 15:25:09 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218180461"
+NoneType: None
+2022-08-12 15:25:09 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218180633"
+NoneType: None
+2022-08-12 15:25:09 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218180744"
+NoneType: None
+2022-08-12 15:25:10 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218180942"
+NoneType: None
+2022-08-12 15:25:10 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218183007"
+NoneType: None
+2022-08-12 15:25:10 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218217251"
+NoneType: None
+2022-08-12 15:25:10 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218218371"
+NoneType: None
+2022-08-12 15:25:10 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218218833"
+NoneType: None
+2022-08-12 15:25:10 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218219859"
+NoneType: None
+2022-08-12 15:25:10 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218227622"
+NoneType: None
+2022-08-12 15:25:10 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218227864"
+NoneType: None
+2022-08-12 15:25:10 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218229012"
+NoneType: None
+2022-08-12 15:25:11 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218229391"
+NoneType: None
+2022-08-12 15:25:11 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218229563"
+NoneType: None
+2022-08-12 15:25:11 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218230019"
+NoneType: None
+2022-08-12 15:25:11 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218253077"
+NoneType: None
+2022-08-12 15:25:11 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218253705"
+NoneType: None
+2022-08-12 15:25:11 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218253886"
+NoneType: None
+2022-08-12 15:25:11 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218254219"
+NoneType: None
+2022-08-12 15:25:11 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218254483"
+NoneType: None
+2022-08-12 15:25:11 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218254664"
+NoneType: None
+2022-08-12 15:25:11 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218256644"
+NoneType: None
+2022-08-12 15:25:12 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218267141"
+NoneType: None
+2022-08-12 15:25:12 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218267796"
+NoneType: None
+2022-08-12 15:25:12 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218267969"
+NoneType: None
+2022-08-12 15:25:12 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218268071"
+NoneType: None
+2022-08-12 15:25:12 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218268293"
+NoneType: None
+2022-08-12 15:25:12 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218268576"
+NoneType: None
+2022-08-12 15:25:12 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218268758"
+NoneType: None
+2022-08-12 15:25:12 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218269191"
+NoneType: None
+2022-08-12 15:25:12 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218269585"
+NoneType: None
+2022-08-12 15:25:13 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218270310"
+NoneType: None
+2022-08-12 15:25:13 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218271078"
+NoneType: None
+2022-08-12 15:25:13 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218285583"
+NoneType: None
+2022-08-12 15:25:13 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218286358"
+NoneType: None
+2022-08-12 15:25:13 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218309222"
+NoneType: None
+2022-08-12 15:25:13 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218324379"
+NoneType: None
+2022-08-12 15:25:13 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218324567"
+NoneType: None
+2022-08-12 15:25:13 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218325153"
+NoneType: None
+2022-08-12 15:25:13 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218325655"
+NoneType: None
+2022-08-12 15:25:13 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218326948"
+NoneType: None
+2022-08-12 15:25:14 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218327119"
+NoneType: None
+2022-08-12 15:25:14 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218327310"
+NoneType: None
+2022-08-12 15:25:14 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218363141"
+NoneType: None
+2022-08-12 15:25:14 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218363246"
+NoneType: None
+2022-08-12 15:25:14 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218363543"
+NoneType: None
+2022-08-12 15:25:14 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218364506"
+NoneType: None
+2022-08-12 15:25:14 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218364678"
+NoneType: None
+2022-08-12 15:25:14 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218364793"
+NoneType: None
+2022-08-12 15:25:14 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218364965"
+NoneType: None
+2022-08-12 15:25:15 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218365805"
+NoneType: None
+2022-08-12 15:25:15 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218381496"
+NoneType: None
+2022-08-12 15:25:15 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218381827"
+NoneType: None
+2022-08-12 15:25:15 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218383875"
+NoneType: None
+2022-08-12 15:25:15 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218383986"
+NoneType: None
+2022-08-12 15:25:15 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218397107"
+NoneType: None
+2022-08-12 15:25:15 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218397527"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218400328"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218400428"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218400651"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218400832"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218401539"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218401973"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218402207"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218402911"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218403647"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218415759"
+NoneType: None
+2022-08-12 15:25:16 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218415980"
+NoneType: None
+2022-08-12 15:25:17 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218416801"
+NoneType: None
+2022-08-12 15:25:17 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218417010"
+NoneType: None
+2022-08-12 15:25:17 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218417777"
+NoneType: None
+2022-08-12 15:25:17 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218418337"
+NoneType: None
+2022-08-12 15:25:17 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218419107"
+NoneType: None
+2022-08-12 15:25:17 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218419379"
+NoneType: None
+2022-08-12 15:25:17 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218439543"
+NoneType: None
+2022-08-12 15:25:17 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218439777"
+NoneType: None
+2022-08-12 15:25:17 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218446866"
+NoneType: None
+2022-08-12 15:25:18 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218446999"
+NoneType: None
+2022-08-12 15:25:18 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218448004"
+NoneType: None
+2022-08-12 15:25:18 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218448450"
+NoneType: None
+2022-08-12 15:25:18 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218448552"
+NoneType: None
+2022-08-12 15:25:18 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218449078"
+NoneType: None
+2022-08-12 15:25:18 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218459973"
+NoneType: None
+2022-08-12 15:25:18 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218461369"
+NoneType: None
+2022-08-12 15:25:18 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218476366"
+NoneType: None
+2022-08-12 15:25:18 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218476472"
+NoneType: None
+2022-08-12 15:25:18 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218476806"
+NoneType: None
+2022-08-12 15:25:19 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218478770"
+NoneType: None
+2022-08-12 15:25:19 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218542182"
+NoneType: None
+2022-08-12 15:25:19 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218542920"
+NoneType: None
+2022-08-12 15:25:19 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "GET", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817?properties=live_session_datetime&limit=100&after=2218543935"
+NoneType: None
+2022-08-12 15:25:19 | INFO
+    [LinkedInAssignDueDateUpdate.hubapi:153] 1 batch request to do.
+2022-08-12 15:25:19 | INFO
+    [LinkedInAssignDueDateUpdate.hubapi:156] Working on batch request 1/1...
+2022-08-12 15:25:19 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "POST", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817/batch/update"
+NoneType: None
+2022-08-12 15:25:20 | INFO
+    [LinkedInAssignDueDateUpdate:107] 
+1 due dates have been added.
+
+2022-08-12 15:25:20 | INFO
+    [LinkedInAssignDueDateUpdate:111] 
+--- END ASSIGNMENTMENT DUE DATE CALCULATION (2022-08-12) ---

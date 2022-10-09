@@ -1,0 +1,5 @@
+--- BEGIN LINKEDIN CERTIFICATIONS CREATION (2022-08-08) ---
+
+Retrieving data from Hubspot...
+2022-08-08 16:42:21 | DEBUG
+    [LinkedInUpdate.hubapi: 35] "METHOD": "POST", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-7353817/search"

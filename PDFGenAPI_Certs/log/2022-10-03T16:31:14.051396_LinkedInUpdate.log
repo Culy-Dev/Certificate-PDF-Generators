@@ -1,0 +1,24 @@
+2022-10-03 09:31:14 | INFO
+    [LinkedInAssignDueDateUpdate: 77] --- BEGIN LINKEDIN CERTIFICATIONS CREATION (2022-10-03) ---
+
+2022-10-03 09:31:14 | INFO
+    [LinkedInAssignDueDateUpdate: 81] Retrieving data from Hubspot...
+2022-10-03 09:31:14 | DEBUG
+    [LinkedInAssignDueDateUpdate.hubapi: 36] "METHOD": "POST", "STATUS_CODE": "200","URL": "https://api.hubapi.com/crm/v3/objects/2-8311962/search"
+NoneType: None
+2022-10-03 09:31:15 | INFO
+    [LinkedInAssignDueDateUpdate: 83] ... Obtained 100 instances to create certifications for.
+
+2022-10-03 09:31:15 | INFO
+    [LinkedInAssignDueDateUpdate: 85] Creating Certifications and LinkedIn URL
+
+2022-10-03 09:31:18 | INFO
+    [LinkedInAssignDueDateUpdate.aws_bucket: 42] Successful S3 put_object response. Status - 200
+2022-10-03 09:31:20 | INFO
+    [LinkedInAssignDueDateUpdate.aws_bucket: 42] Successful S3 put_object response. Status - 200
+2022-10-03 09:31:22 | INFO
+    [LinkedInAssignDueDateUpdate.aws_bucket: 42] Successful S3 put_object response. Status - 200
+2022-10-03 09:31:24 | INFO
+    [LinkedInAssignDueDateUpdate.aws_bucket: 42] Successful S3 put_object response. Status - 200
+2022-10-03 09:31:26 | INFO
+    [LinkedInAssignDueDateUpdate.aws_bucket: 42] Successful S3 put_object response. Status - 200

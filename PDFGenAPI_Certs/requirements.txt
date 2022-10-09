@@ -1,0 +1,5 @@
+requests-toolbelt==0.9.1
+python-dotenv==0.20.0
+pandas==1.4.3
+boto3==1.24.89
+# pip install git+https://github.com/pdfgeneratorapi/python-client.git
