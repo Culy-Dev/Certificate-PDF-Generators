@@ -94,7 +94,7 @@ def get_syslog_handler():
         external_handler (class): sending logging messages to papertrail cloud hosting management
         system
     """
-    external_handler = SysLogHandler(address=('logs6.papertrailapp.com', 11789))
+    external_handler = SysLogHandler(address=(paper_trail_address, port))
     external_handler.setLevel(logging.DEBUG)
     external_handler.setFormatter(MyFormatter())
     return external_handler
