@@ -8,6 +8,20 @@ The folder Certificates contains a list of modules that work together to create 
 
 A crontab is set up to run the program every hour everyday. Student and Class data is grabbed from Hubspot. Then, depending on certain criteria, the information is added to templates created on PDFGeneratorAPI, they are uploaded to AWS, urls of the pdfs are obtained, and LinkedIN Badge is created, the assignment due date is calculated from subtraining 2 business days from the live_session_date property, and they are added to their respective student/course instance.
 
+## Download requirements
+1. In an Ubuntu server download this repository using ```git clone https://github.com/Culy-Dev/Pandadoc_Certs.git```
+2. Navigate: ```cd  Certificate-PDF-Generators/Pandadoc_Certs```
+3. Download requirements.txt: ```pip install -r /path/to/requirements.txt```
+
+## Store Important Authentication in a .env file
+1. Create a .env file
+2. Generate your a JWT for PDFGenAPI by locating the iss, sub, exp, and secret variables. Information can be found at [Creating a JWT](https://docs.pdfgeneratorapi.com/v3/#section/Authentication/Creating-a-JWT)
+4. ```TEST_HS_TOKEN={Store your Hubspot token here}```: [Generate Hubspot AccessToken](https://community.hubspot.com/t5/APIs-Integrations/How-to-generate-an-access-token-and-refresh-token/td-p/674041)
+5. Locate your Pandadocs API, the template id of your certificate, and folder id and store in the following variables
+ * ```PANDA_API```
+ * ```TEMPLATE_ID```
+ * ```FOLDER_ID```
+
 ## Crontab Explanation
 
 To check which cronjobs are set up, enter the following command <br />
@@ -17,14 +31,14 @@ sudo crontab -l
 
 The following information should show up:
 <pre>
-*/60 * * * * /usr/bin/flock -n /tmp/cert.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py > /home/ubuntu/ALTCO/Certificates/temp/curr_cert.log 2>&1'
+*/60 * * * * /usr/bin/flock -n /tmp/cert.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/Pandadoc_Certs/run.py > /home/ubuntu/ALTCO/Certificates/temp/curr_cert.log 2>&1'
 </pre>
 The above means:
   *  ```*/60 * * * * ```: Runs every 60 minutes.
   *  ```/usr/bin/flock -n /tmp/sample.lockfile -c```: Checks to see if the program is already running a cronjob, if it is, don't run the next cronjob
   *  ```/home/ubuntu/venv/bin/python```: From the virtual environment, use python
-  *  ```/home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py```: to run the ```run.py``` module
-  *  ```> /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/temp/curr_cert.log 2>&1```: Write the console output onto the ```curr_cert.log``` file in the ```/temp/``` folder.
+  *  ```/home/ubuntu/Certificate-PDF-Generators/Pandadoc_Certs/run.py```: to run the ```run.py``` module
+  *  ```> /home/ubuntu/Certificate-PDF-Generators/Pandadoc_Certs/temp/curr_cert.log 2>&1```: Write the console output onto the ```curr_cert.log``` file in the ```/temp/``` folder.
 
 ## Stopping the Cronjob
 Do the following in order to stop the cronjob.
@@ -32,7 +46,7 @@ Do the following in order to stop the cronjob.
 2. Type to ```i``` to insert.
 3. Get to the line with the cronjob and add ```#``` in order to comment out the crontab.
 <pre>
-# /60 * * * * /usr/bin/flock -n /tmp/sample.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py > /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/temp/curr_integration.log 2>&1'
+# /60 * * * * /usr/bin/flock -n /tmp/sample.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/Pandadoc_Certs/run.py > /home/ubuntu/Certificate-PDF-Generators/Pandadoc_Certs/temp/curr_integration.log 2>&1'
 </pre>
 4. Save your edits to the vim file by typing hitting the ```ESC``` button and then typing ```:wq```
 ** If you need to exit the vim without saving, hit the ```ESC``` button and then typing ```:q!```
@@ -70,7 +84,7 @@ somewhere else.
 ## Manual Run
 If for some reason you need to manually run the file, cancel the cronjob as given by the steps above and then enter the following in the command line:
 <pre>
-python3 /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py
+python3 /home/ubuntu/Certificate-PDF-Generators/Pandadoc_Certs/run.py
 </pre>
 
 Make sure you turn the cronjob back on once you made the appropriate edits to the program by following the same steps of stopping the cronjob, but delete the ```#```
