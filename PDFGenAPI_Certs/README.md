@@ -19,12 +19,12 @@ The program is set to run every hour and update the information in their respect
 ## Store Important Authentication in a .env file
 1. Create a .env file
 2. Generate your a JWT for PDFGenAPI by locating the iss, sub, exp, and secret variables. Information can be found at [Creating a JWT](https://docs.pdfgeneratorapi.com/v3/#section/Authentication/Creating-a-JWT)
-3. Store that as PDFGETAPI_JWT=__{Your jwt}__
-4. HS_TOKEN={Store your Hubspot token here}: [Generate Hubspot AccessToken](https://community.hubspot.com/t5/APIs-Integrations/How-to-generate-an-access-token-and-refresh-token/td-p/674041)
+3. Store that as ```PDFGETAPI_JWT={Your jwt}```
+4. ```HS_TOKEN={Store your Hubspot token here``` [Generate Hubspot AccessToken](https://community.hubspot.com/t5/APIs-Integrations/How-to-generate-an-access-token-and-refresh-token/td-p/674041)
 <br />Get the following [AWS-S3-Keys](https://objectivefs.com/howto/how-to-get-amazon-s3-keys)<br />
-6. AWS_S3_BUCKET=__{Store AWS Bucket Here}__
-7. AWS_ACCESS_KEY_ID=__{AWS Access Key ID Here}__
-8. AWS_SECRET_ACCESS_KEY=__{AWS Secret Here}__
+6. ```AWS_S3_BUCKET={Store AWS Bucket Here}```
+7. ```AWS_ACCESS_KEY_ID={AWS Access Key ID Here}```
+8. ```AWS_SECRET_ACCESS_KEY={AWS Secret Here}```
 
 ## Set Up a Crontab
 1. Type ```sudo crontab -e```
