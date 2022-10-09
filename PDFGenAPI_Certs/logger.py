@@ -87,7 +87,7 @@ def get_console_handler():
     console_handler.setFormatter(MyFormatter())
     return console_handler
 
-def get_syslog_handler():
+def get_syslog_handler(paper_trail_address, port):
     """
     Sets the lowest logging level of the file_handler to DEBUG and format the log message to 
     the custom MyFormatter 
@@ -96,7 +96,7 @@ def get_syslog_handler():
         external_handler (class): sending logging messages to papertrail cloud hosting management
         system
     """
-    external_handler = SysLogHandler(address=('logs6.papertrailapp.com', 11789))
+    external_handler = SysLogHandler(address=(paper_trail_address, port))
     external_handler.setLevel(logging.DEBUG)
     external_handler.setFormatter(MyFormatter())
     return external_handler
@@ -107,7 +107,7 @@ def get_logger(logger_name):
 
     Args:
         logger_name (str): name of the logger to be used
-
+)
     Returns:
         logger (class): root logger in the hierachy
     """
