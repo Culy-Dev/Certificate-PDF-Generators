@@ -4,7 +4,7 @@
 
 You will need to also get the approrpiate Pandadoc and Hubspot API keys and add it to a .env file.
 
-The folder Certificates contains a list of modules that work together to create certificates via [PDFAPI](https://pdfgeneratorapi.com/), a LinkedIN Badge Url, and updates the assignment due date.
+The folder Certificates contains a list of modules that work together to create certificates via [PDFAPI](https://pdfgeneratorapi.com/), a LinkedIn Badge Url, and updates the assignment due date.
 
 A crontab is set up to run the program every hour everyday. Student and Class data is grabbed from Hubspot. Then, depending on certain criteria, the information is added to templates created on PDFGeneratorAPI, they are uploaded to AWS, urls of the pdfs are obtained, and LinkedIN Badge is created, the assignment due date is calculated from subtraining 2 business days from the live_session_date property, and they are added to their respective student/course instance.
 
