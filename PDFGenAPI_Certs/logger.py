@@ -68,7 +68,7 @@ def get_file_handler():
     """
     isodatetime=datetime.datetime.utcnow().isoformat()
     curr_dir = os.getcwd()
-    log_fname = os.path.join(os.path.dirname(__file__) + '/log',F'{isodatetime}_LinkedInUpdate.log' )
+    log_fname = os.path.join(os.path.dirname(__file__) + os.sep, 'log',F'{isodatetime}_LinkedInUpdate.log' )
     file_handler = logging.FileHandler(log_fname, mode='a')
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(MyFormatter())
