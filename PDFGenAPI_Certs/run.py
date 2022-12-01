@@ -82,8 +82,8 @@ class LinkedInBadgeDueDate:
         """Creates a new database self.session for instant use"""
 
         engine = create_engine(SQLITE_DB )
-        Session = sessionmaker(bind = engine)
-        session = scoped_session(Session)
+        session_factory = sessionmaker(bind = engine)
+        session = scoped_session(session_factory)
         return (engine, session)
 
     def _linkedinbadge(self):
