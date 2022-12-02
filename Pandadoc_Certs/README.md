@@ -30,7 +30,7 @@ sudo crontab -l
 
 The following information should show up:
 <pre>
-*/60 * * * * /usr/bin/flock -n /tmp/cert.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/Pandadoc_Certs/run.py > /home/ubuntu/ALTCO/Certificates/temp/curr_cert.log 2>&1'
+*/60 * * * * /usr/bin/flock -n /tmp/sample.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/Pandadoc_Certs/run.py > /home/ubuntu/ALTCO/Certificates/temp/curr_cert.log 2>&1'
 </pre>
 The above means:
   *  ```*/60 * * * * ```: Runs every 60 minutes.
