@@ -30,7 +30,7 @@ The program is set to run every hour and update the information in their respect
 1. Type ```sudo crontab -e```
 2. Pick the VIM editor
 3. Type ```i``` to switch to insert mode
-4. Paste ```*/60 * * * * /usr/bin/flock -n /tmp/cert.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py > /home/ubuntu/ALTCO/Certificates/temp/curr_cert.log 2>&1'```
+4. Paste ```*/60 * * * * /usr/bin/flock -n /tmp/sample.lockfile -c '/home/ubuntu/venv/bin/python /home/ubuntu/Certificate-PDF-Generators/PDFGenAPI_Certs/run.py > /home/ubuntu/ALTCO/Certificates/temp/curr_cert.log 2>&1'```
 5. Type ```Esc``` to exit insert mode
 6. Type ```:wq``` to save your changes
 
