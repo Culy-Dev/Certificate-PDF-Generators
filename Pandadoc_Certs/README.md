@@ -1,8 +1,10 @@
 # PDF Generator API Certificates Overview
 
-**NOTE: THE CODE WILL NOT RUN AS IS BECAUSE THERE'S NO hubspot.py. THAT CODE WAS WRITTEN BY SOMEONE ELSE, AND I CANNOT TAKE CREDIT FOR THAT."**
+**NOTE: THE CODE WILL NOT RUN AS IS BECAUSE THERE'S NO hubspot.py. THAT CODE WAS WRITTEN BY SOMEONE ELSE."**
 
-You will need to also get the approrpiate Pandadoc and Hubspot API keys and add it to a .env file.
+You will need to also get the appropriafe Pandadoc and Hubspot API keys and add it to a .env file.
+
+Some object internal names may also differ between HubSpot instances for the API endpoints.
 
 The folder Certificates contains a list of modules that work together to create certificates via [PDFAPI](https://pdfgeneratorapi.com/), a LinkedIn Badge Url, and updates the assignment due date.
 
